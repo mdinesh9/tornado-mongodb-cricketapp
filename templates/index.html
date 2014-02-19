@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mongo Sample Web App</title>
+	<link rel="stylesheet" href="../static/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../static/css/bootstrap-theme.min.css">
+</head>
+<body>
+	<h1>Sample Mongodb and Tornado based Web App</h1>
+	<hr/>
+		<div class="container">
+				<div class="row-fluid">
+					<div class="span4">
+						<table class="table">
+							<thead>
+								<th>Name</th>
+								<th>Runs</th>
+								<th>Balls</th>
+								<th>Runs per. Ball</th>
+							</thead>
+							<tbody>
+								{% for name, runs, balls in zip(results[0]['name'], results[1]['Runs'], results[2]['Balls']) %}
+								<tr>
+									<td>{{ name }}</td>
+									<td>{{ runs }}</td>
+									<td>{{ balls }}</td>
+									{% if int(runs) != 0 and int(balls) != 0 %}
+										<td>{{ round(float(runs) / float(balls), 2) }}</td>
+									{% else %}
+										<td> - </td>
+									{% end %}
+								</tr>
+								{% end %}
+							</tbody>
+						</table>
+					</div>
+					<div class="span4"></div>
+					<div class="span4"></div>
+				</div>
+		<div>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script type="text/javascript" src="../static/js/bootstrap.min.js"></script>
+</body>
+</html>

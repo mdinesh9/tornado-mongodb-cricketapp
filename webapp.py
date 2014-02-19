@@ -1,18 +1,18 @@
 import tornado.ioloop
 import tornado.web
-import webbrowser
 import tornado.options
-from tornado import escape
 import os
-import time
 
+# Connect with pymongo client
 from pymongo import Connection
 db = Connection().cricket
 
+# This handler class will work when the user hits http://localhost:8888
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
+        # Since the data is very less here. I used a list here.
         results = [cricketer for cricketer in db.cricket.find()]
-        self.render("index.html", results = results)
+        self.render("index.html", results = results)  # Render the html page with the results
 
 def launcher():
     application = tornado.web.Application([
@@ -27,6 +27,6 @@ def launcher():
     tornado.options.parse_command_line()
     tornado.ioloop.IOLoop.instance().start()
 
-
+# Call the launcher function.
 if __name__ == "__main__":
     launcher()

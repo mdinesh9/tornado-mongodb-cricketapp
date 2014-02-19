@@ -1,4 +1,22 @@
-tornado-mongodb-cricketapp
-==========================
+## Tornado, Mongdb based Sample Application ##
+===================================================================
 
-Tornado and Mongodb based app which shows cricketer name, runs, balls and runs per ball. Coded this app for a training session.
+Coded this app for a training session. It displays name, runs, balls and runs per ball.
+
+**Tools used**:
+
+- Python
+- Tornado
+- Mongodb
+- Pymongo
+- Twitter Bootstrap
+
+**How to Use**:
+
+- Create the database inside mongodb. I used "cricket" as the database name inside mongodb.
+- Load the data available inside the csv file into mongodb.
+- Run webapp.py file.  
+
+
+
+
